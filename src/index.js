@@ -16,7 +16,7 @@ const app = express();+
 require('./lib/passport');
 
 //setting
-app.set('port', process.env.PORT || 4000)
+app.set('port', process.env.PORT || 3000)
 
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
@@ -65,6 +65,6 @@ app.use('/links', require('./routes/links'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //arrancamos el servidor
-app.listen(app.get('port'), ()=>{
-    console.log('El servidor esta corriendo en el puerto' , app.get('port'));
+app.listen(process.env.PORT? process.env.PORT : "3000",()=>{
+    console.log('Servidor funcionando');
 })
